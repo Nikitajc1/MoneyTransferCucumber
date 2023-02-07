@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -20,14 +22,24 @@ public class PersonalAccount {
         yourCards.should(Condition.appear).shouldHave(Condition.exactText("Ваши карты"));
     }
 
-    public int getFirstCardBalance() {
-        var card = cards.first().text();
-        return extractBalance(card);
+    public int getCardBalance(String cardNumber) {
+        var card1 = cards.first().text();
+        var card2 = cards.last().text();
+        if (cardNumber.equals("5559 0000 0000 0002")) {
+            return extractBalance(card2);
+        } else {
+            return extractBalance(card1);
+        }
     }
 
-    public int getSecondCardBalance() {
-        var card = cards.last().text();
-        return extractBalance(card);
+    public int firstCardBalance() {
+        var card1 = cards.first().text();
+        return extractBalance(card1);
+    }
+
+    public int secondCardBalance() {
+        var card2 = cards.last().text();
+        return extractBalance(card2);
     }
 
     private int extractBalance(String text) {

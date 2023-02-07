@@ -35,6 +35,5 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty("cucumber.junit-platform.naming-strategy", "long")
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
 }
