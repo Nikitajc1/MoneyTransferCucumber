@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Assertions;
 
 public class TemplateSteps {
 
-    int rublesGlobal;
-    int check1;
-    int check2;
+//    int rublesGlobal;
+//    int check1;
+//    int check2;
 
     public int number(int number) {
         if (number == 1) {
@@ -52,8 +52,8 @@ public class TemplateSteps {
     public void moneyTransfer(String rubles, String card, int cardNumber) {
         PersonalAccount account = new PersonalAccount();
         ReplenishTheBalance replenish = new ReplenishTheBalance();
-        check1 = account.firstCardBalance();
-        check2 = account.secondCardBalance();
+//        check1 = account.firstCardBalance();
+//        check2 = account.secondCardBalance();
 
         if (card.equals("5559 0000 0000 0001")) {
             account.secondButtonCheckAndClick();
@@ -62,7 +62,7 @@ public class TemplateSteps {
         }
 
         replenish.amountSet(rubles);
-        rublesGlobal = Integer.parseInt(rubles);
+//        rublesGlobal = Integer.parseInt(rubles);
         replenish.fromSet(card);
         replenish.confirmButtonClick();
 
